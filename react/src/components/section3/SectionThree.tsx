@@ -40,10 +40,13 @@ useEffect(() => {
         }
     
     })
-    scrollTrigger.matchMediaRefresh()
+    // scrollTrigger.matchMediaRefresh()
 
-    if(onScreen && reveal) {
-       const ctx = gsap.context(() => {
+    // if(onScreen && reveal) {
+    //    const ctx = gsap.context(() => {
+
+
+
       section3tl.from('.box', {
         y:200,
         delay:1.5,
@@ -60,17 +63,13 @@ useEffect(() => {
         // color:'white',
         // ease:"power4.inOut"
       })
-  return() => ctx.revert()
-    })
-    } else {
-      section3tl.reverse()
-    }
-    //  const ctx = gsap.context(() => {
-   
 
-    // return() => ctx.revert()
-    // })
-})
+
+  // return() => ctx.revert()
+    })
+//     } 
+  
+// })
    
 
 
