@@ -1,0 +1,16 @@
+{
+  "name": "locomotive-scroll",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "^3.11.4",
+    "locomotive-scroll": "^4.1.4"
+  }
+}

@@ -1,43 +1,32 @@
 <script setup lang="ts">
 
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted,watchEffect } from 'vue'
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 
 onMounted(() => {
-  const ctx = gsap.context(() => {
-    const section2tl = gsap.timeline({
-      scrollTrigger:{
-        trigger: '#section2',
-        start: "top center",
+  const section2tl = gsap.timeline({
+    scrollTrigger: {
+      trigger:'#section2',
+      start: "top center",
       end: "top +=10",
-      // markers:true,
-      scrub: 0.7,
-      }
-    })
-    section2tl.to('#section2', { backgroundColor: 'purple',
-      duration:1.2,
-      color:'white',
-      ease:"power4.inOut"})
-
-
-    return () => ctx.revert()
+    }
   })
+  section2tl.to('#section2',{backgroundColor:'blue',color:'white',duration:1.2})
 })
-
 
 </script>
 
 <template >
-    <section  id="section2" data-scroll data-scroll-section>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint ex maxime, eveniet laboriosam totam aut ipsam facere quia, culpa aperiam beatae libero veniam? Rem asperiores optio maxime dolorem. Perspiciatis, laudantium!</p>
+    <section  id="section2"  data-scroll-section>
+        <p>Hola</p>
     
         <div class="box-container">
         <div class="box1"></div>
 
 
-<div class="box2"></div>
+<!-- <div class="box2"></div> -->
       </div>
      
     </section>
@@ -50,6 +39,10 @@ section{
     height: 100vh;
     width: 100%;
     background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 .box-container{
   display: flex;
@@ -59,8 +52,9 @@ section{
 
 .box1{
   
-  height: 300px;
-  width: 30%;
+  height: 20rem;
+  width: 20rem;
+  margin: 0 auto;
   background-color: red;
 }
 

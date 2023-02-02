@@ -8,7 +8,7 @@ import SectionThree from './components/section3/SectionThree'
 
 function App() {
   const containerRef = useRef<HTMLDivElement | null>(null)
-  useLocoScroll()
+  // useLocoScroll()
 
 
   return (

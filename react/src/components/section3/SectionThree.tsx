@@ -1,7 +1,8 @@
 import gsap from 'gsap'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './SectionThree.scss'
 import scrollTrigger from 'gsap'
+import useIntersectionObserver from '../../hooks/useIntersectionObserver'
 gsap.registerPlugin(scrollTrigger)
 
 const SectionThree = () => {
@@ -11,6 +12,20 @@ const boxContainerRef = useRef<HTMLDivElement | null>(null)
 const boxRef1 = useRef<HTMLDivElement | null>(null)
 const boxRef2 = useRef<HTMLDivElement | null>(null)
 const boxRef3 = useRef<HTMLDivElement | null>(null)
+
+const [isVisible,setIsVisible] = useState(false)
+const [reveal, setReveal] = useState(false);
+const onScreen = useIntersectionObserver(pageRef,0.1)
+
+
+useEffect(() => {
+  if (onScreen) setReveal(onScreen)
+  
+  console.log(onScreen)
+ 
+}, [onScreen])
+
+
 
 
 useEffect(() => {
@@ -26,24 +41,32 @@ useEffect(() => {
     
     })
     scrollTrigger.matchMediaRefresh()
-    //  const ctx = gsap.context(() => {
-    // section3tl.from('.box', {
-    //     y:200,
-    //     delay:1.5,
-    //     ease:"power3.inOut",
-    //     duration:3,
-    //     opacity:0
-    // }, "<0.1")
+
+    if(onScreen && reveal) {
+       const ctx = gsap.context(() => {
+      section3tl.from('.box', {
+        y:200,
+        delay:1.5,
+        ease:"power3.inOut",
+        duration:3,
+        opacity:0
+    }, "<0.1")
 
     
 
-    // section3tl.to(pageRef.current, {
-    //     backgroundColor: 'Yellow',
-    //     duration:1.2,
-    //     color:'white',
-    //     ease:"power4.inOut"
-    //   })
-
+    section3tl.to(pageRef.current, {
+        // backgroundColor: 'Yellow',
+        // duration:1.2,
+        // color:'white',
+        // ease:"power4.inOut"
+      })
+  return() => ctx.revert()
+    })
+    } else {
+      section3tl.reverse()
+    }
+    //  const ctx = gsap.context(() => {
+   
 
     // return() => ctx.revert()
     // })
