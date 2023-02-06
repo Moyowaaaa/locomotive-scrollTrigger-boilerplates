@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="locomotive.css">
 </head>
 <body>
-    <div class="loader">
+    <!-- <div class="loader">
         <h2>SA</h2>
-        </div>
+        </div> -->
     
     <div class="scroll-container" id="scroll-container" data-scroll-container>
     
@@ -52,7 +52,7 @@
         <section class="section4" id="section" data-scroll-section>
           <div class="container4">
 
-          <h1>This is Section 4</h1>
+          <h1 class="section4text">This is Section 4</h1>
 
           </div>
             
@@ -159,7 +159,7 @@ var tl2 = gsap.timeline({
     scrollTrigger: {
         trigger: ".section3",
         horizontal:'true',
-        markers:true,
+        // markers:true,
         start:"+=100 +=1080",
         end:"-=500px",
         scrub:true
@@ -198,6 +198,28 @@ tl2.fromTo(
           opacity: 1,
           clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 0 0)',
           duration:3})
+
+          var tl4 = gsap.timeline({
+            scrollTrigger:{
+              trigger:'.container4',
+              horizontal: 'true',
+            // markers:true,
+        start:"top bottom-=600",
+        end:"-=500px",
+        scrub:0.1,
+            }
+          }, {force3D: true,})
+          
+          
+          tl4.from('.section4text',{
+            duration: 5,
+		opacity: 0,
+    yPercent: 100,
+      stagger: 0.05,
+      ease: "power3.out",
+          })
+
+          
 
 
 

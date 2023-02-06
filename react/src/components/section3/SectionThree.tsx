@@ -15,61 +15,35 @@ const boxRef3 = useRef<HTMLDivElement | null>(null)
 
 const [isVisible,setIsVisible] = useState(false)
 const [reveal, setReveal] = useState(false);
-const onScreen = useIntersectionObserver(pageRef,0.1)
+// const onScreen = useIntersectionObserver(pageRef,0.1)
 
 
-useEffect(() => {
-  if (onScreen) setReveal(onScreen)
+// useEffect(() => {
+//   if (onScreen) setReveal(onScreen)
   
-  console.log(onScreen)
+//   console.log(onScreen)
  
-}, [onScreen])
-
+// }, [onScreen])
 
 
 
 useEffect(() => {
-   
-    const section3tl = gsap.timeline({
-        scrollTrigger:{
-            trigger: pageRef.current,
-            start: "top center",
-            end: "top +=10",
-            // markers:true,
-            // scrub: 0.1,
-        }
-    
+  const ctx = gsap.context(() => {
+    const sectionThreeTl = gsap.timeline({
+      scrollTrigger:{
+        trigger: pageRef.current,
+        start: "top center",
+      end: "top +=10",
+      // markers:true,
+      scrub: 0.7,
+      }
     })
-    // scrollTrigger.matchMediaRefresh()
-
-    // if(onScreen && reveal) {
-    //    const ctx = gsap.context(() => {
+    sectionThreeTl.fromTo(boxRef1.current,{opacity:0},{ y: 0, opacity: 1, duration:1.5, clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)", ease:"power3.inOut" },'<0.1')
 
 
-
-      section3tl.from('.box', {
-        y:200,
-        delay:1.5,
-        ease:"power3.inOut",
-        duration:3,
-        opacity:0
-    }, "<0.1")
-
-    
-
-    section3tl.to(pageRef.current, {
-        // backgroundColor: 'Yellow',
-        // duration:1.2,
-        // color:'white',
-        // ease:"power4.inOut"
-      })
-
-
-  // return() => ctx.revert()
-    })
-//     } 
-  
-// })
+    return () => ctx.revert();
+  })
+})
    
 
 
@@ -78,12 +52,7 @@ useEffect(() => {
 
 <div className='sectionThree-box__box1 box' ref={boxRef1}></div>
     
-    {/* <div className='sectionThree-box' ref={boxContainerRef}>
-        
-   
-    <div className='sectionThree-box__box2' ref={boxRef2}></div>
-    <div className='sectionThree-box__box3' ref={boxRef3}></div>
-    </div> */}
+
     </div>
   )
 }

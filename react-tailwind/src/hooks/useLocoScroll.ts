@@ -32,6 +32,7 @@ export default function useLocoScroll() {
       
       // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
       ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+      
       ScrollTrigger.defaults({ scroller: "#main-container" });
       
       ScrollTrigger.refresh();
