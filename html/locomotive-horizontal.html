@@ -11,10 +11,6 @@
     <link rel="stylesheet" href="locomotive.css">
 </head>
 <body>
-    <!-- <div class="loader">
-        <h2>SA</h2>
-        </div> -->
-    
     <div class="scroll-container" id="scroll-container" data-scroll-container>
     
 
@@ -68,16 +64,7 @@
             
         </section>
 
-        <!-- <section class="section4" id="section" data-scroll-section>
-            <div class="container">
-                <h2>This is section 4</h2>
-
-                
-                
-            </div>
-            
-        </section>
-         -->
+      
     </div>
  
 
@@ -219,7 +206,26 @@ tl2.fromTo(
       ease: "power3.out",
           })
 
-          
+
+          var tl5 = gsap.timeline({
+    scrollTrigger : {
+        trigger:".section5",
+        horizontal:true,
+        // markers:true,
+        start:"top +=400",
+     
+        scrub:true,
+        endTrigger:'.section3'
+        
+    }
+})
+
+tl5.to('.section5',{
+  background:"purple",
+  duration:3,
+  ease:"power3.inOut",
+  color:"white"
+})
 
 
 

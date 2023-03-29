@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 // useLocomotiveScroll('#container')
 
-useLocoScroll()
+// useLocoScroll()
 
 
 // onMounted(() => {

@@ -3,12 +3,17 @@ import React, { useEffect, useRef } from 'react'
 import './SectionTwo.scss'
 import { gsap } from "gsap";
 import ScrollTrigger from 'gsap';
+import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 gsap.registerPlugin(ScrollTrigger)
 
 
 
 const SectionTwo = () => {
   const pageRef = useRef<HTMLDivElement | null>(null)
+  
+
+  // const isIntersecting = useIntersectionObserver(pageRef,0.1)
+  // console.log(isIntersecting)
 
 
   // useEffect(() => {

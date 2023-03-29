@@ -7,6 +7,7 @@
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
+    display:none
 }
 /* Track */
 ::-webkit-scrollbar-track {
