@@ -23,7 +23,7 @@ const observer = new IntersectionObserver(
     threshold,
     }
 );
-watchEffect(observer,() => {
+onMounted(() => {
     observer.observe(element!);
   });
   
